@@ -9,22 +9,22 @@ if fs.exists("recrosh") then
 end
 if fs.exists("socket/main.lua") then
     tester = fs.open("socket/main.lua","r")
-    tex = tester.read()
+    tex = tester.readAll()
     tester.close()
     shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua blank.txt")
     teste = fs.open("blank.txt","r")
-    te = teste.read()
+    te = teste.readAll()
     teste.close()
     if tex ~= te then
         shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
     end
 end
 tester = fs.open("startup/re.lua","r")
-tex = tester.read()
+tex = tester.readAll()
 tester.close()
 shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua blank.txt")
 teste = fs.open("blank.txt","r")
-te = teste.read()
+te = teste.readAll()
 teste.close()
 if tex ~= te then
     shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua startup/re.lua")
