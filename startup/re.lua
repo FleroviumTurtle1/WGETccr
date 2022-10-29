@@ -19,6 +19,7 @@ if fs.exists("socket/main.lua") then
     te = teste.readAll()
     teste.close()
     if tex ~= te then
+        fs.delete("socket/main.lua")
         shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
     end
 end
@@ -33,6 +34,7 @@ teste = fs.open("blank.txt","r")
 te = teste.readAll()
 teste.close()
 if tex ~= te then
+    fs.delete("startup/re.lua")
     shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua startup/re.lua")
 end
 function c1()
