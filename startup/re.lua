@@ -7,6 +7,28 @@ end
 if fs.exists("recrosh") then
     fs.delete("recrosh")
 end
+if fs.exists("socket/main.lua") then
+    tester = fs.open("socket/main.lua","r")
+    tex = tester.read()
+    tester.close()
+    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua blank.txt")
+    teste = fs.open("blank.txt","r")
+    te = teste.read()
+    teste.close()
+    if tex ~= te then
+        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
+    end
+end
+tester = fs.open("startup/re.lua","r")
+tex = tester.read()
+tester.close()
+shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua blank.txt")
+teste = fs.open("blank.txt","r")
+te = teste.read()
+teste.close()
+if tex ~= te then
+    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua startup/re.lua")
+end
 function c1()
     webco.exec()
 end
