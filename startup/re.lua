@@ -11,6 +11,9 @@ if fs.exists("socket/main.lua") then
     tester = fs.open("socket/main.lua","r")
     tex = tester.readAll()
     tester.close()
+    if fs.exists("blank.txt") then
+        fs.delete("blank.txt")
+    end
     shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua blank.txt")
     teste = fs.open("blank.txt","r")
     te = teste.readAll()
@@ -22,6 +25,9 @@ end
 tester = fs.open("startup/re.lua","r")
 tex = tester.readAll()
 tester.close()
+if fs.exists("blank.txt") then
+    fs.delete("blank.txt")
+end
 shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua blank.txt")
 teste = fs.open("blank.txt","r")
 te = teste.readAll()
@@ -58,14 +64,6 @@ function start()
     webco = require("../socket/main")
     parallel.waitForAny(c2,c3)
     parallel.waitForAny(c1,t)
-    --broke,erro = pcall(loadfile("socket/main.lua"))
-    --if broke ~= "Terminated" and erro ~= "Terminated" then
-    --    print(erro)
-    --    sleep(5)
-    --    os.reboot()
-    --else
-    --
-    --end
 end
 local ndone = true
 function crosh()
