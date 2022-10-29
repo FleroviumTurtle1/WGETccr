@@ -40,7 +40,7 @@ if tex ~= te then
     fs.delete("startup/re.lua")
     shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua startup/re.lua")
 end
-if h = 1 then
+if h == 1 then
     os.reboot()
 end
 function c1()
