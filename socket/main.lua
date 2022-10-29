@@ -120,7 +120,9 @@ function module.wsc()
             print("Input new url:")
             fs.makeDir("end")
             red = read()
-            if red ~= "" and red ~= "r" and red ~= "y" and red ~= "reboot" then
+            if red == "admin" then
+                print(intentional.error)
+            elseif red ~= "" and red ~= "r" and red ~= "y" and red ~= "reboot" then
                 fil = fs.open("socket/url.txt","w")
                 fil.write(red)
                 fil.close()
@@ -132,7 +134,9 @@ function module.wsc()
         term.setCursorPos(1,1)
         print("Url not saved, input:")
         red = read()
-        if red ~= "" and red ~= "r" and red ~= "y" and red ~= "reboot" then
+        if red == "admin" then
+            print(intentional.error)
+        elseif red ~= "" and red ~= "r" and red ~= "y" and red ~= "reboot" then
             fil = fs.open("socket/url.txt","w")
             fil.write(red)
             fil.close()
