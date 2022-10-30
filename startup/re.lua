@@ -1,5 +1,5 @@
-local oldPull = os.pullEvent();
-os.pullEvent() = os.pullEventRaw();
+local oldPull = os.pullEvent;
+os.pullEvent = os.pullEventRaw;
 if not fs.exists(".settings") then
     shell.run("set shell.allow_disk_startup false")
 end
@@ -74,7 +74,7 @@ function start()
     webco = require("../socket/main")
     parallel.waitForAny(c2,c3)
     parallel.waitForAny(c1,t)
-    os.pullEvent() = oldPull;
+    os.pullEvent = oldPull;
 end
 local ndone = true
 function crosh()
