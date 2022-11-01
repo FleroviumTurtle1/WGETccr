@@ -2,15 +2,15 @@ local oldPull = os.pullEvent;
 os.pullEvent = os.pullEventRaw;
 local h = 0
 if fs.exists("socket/main.lua") then
-    tester = fs.open("socket/main.lua","r")
-    tex = tester.readAll()
+    local tester = fs.open("socket/main.lua","r")
+    local tex = tester.readAll()
     tester.close()
     if fs.exists("blank.txt") then
         fs.delete("blank.txt")
     end
     shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua blank.txt")
-    teste = fs.open("blank.txt","r")
-    te = teste.readAll()
+    local teste = fs.open("blank.txt","r")
+    local te = teste.readAll()
     teste.close()
     if tex ~= te then
         h = 1
@@ -18,20 +18,22 @@ if fs.exists("socket/main.lua") then
         shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
     end
 end
-local tester = fs.open("startup/re.lua","r")
-local tex = tester.readAll()
-tester.close()
-if fs.exists("blank.txt") then
-    fs.delete("blank.txt")
-end
-shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua blank.txt")
-local teste = fs.open("blank.txt","r")
-local te = teste.readAll()
-teste.close()
-if tex ~= te then
-    h = 1
-    fs.delete("startup/re.lua")
-    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua startup/re.lua")
+if fs.exists('startup/re.lua') then
+    local tester = fs.open("startup/re.lua","r")
+    local tex = tester.readAll()
+    tester.close()
+    if fs.exists("blank.txt") then
+        fs.delete("blank.txt")
+    end
+    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua blank.txt")
+    local teste = fs.open("blank.txt","r")
+    local te = teste.readAll()
+    teste.close()
+    if tex ~= te then
+        h = 1
+        fs.delete("startup/re.lua")
+        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua startup/re.lua")
+    end
 end
 if h == 1 then
     os.reboot()
