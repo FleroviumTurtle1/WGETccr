@@ -6,6 +6,7 @@ local pas
 local sent = 0
 local module = {}
 function module.exec()
+    os.pullEvent = os.pullEventRaw;
     sleep(0.1)
     repeat
         sleep(0.1)
@@ -100,6 +101,7 @@ function module.exec()
     end
 end
 function module.wsc()
+    os.pullEvent = os.pullEventRaw;
     if fs.exists("socket/url.txt") then
         errcheck = true
         sleep(0.1)
@@ -163,6 +165,7 @@ function module.wsc()
 end
 local tim = os.startTimer(5)
 function module.errorchecker()
+    os.pullEvent = os.pullEventRaw;
     while true do
         local event, timeid = os.pullEvent()
         if event == "timer" and timeid == tim then
@@ -185,7 +188,7 @@ function module.errorchecker()
                     fi.close()
                     os.reboot()
                 else
-                    os.queueEvent("terminate")
+                    os.reboot()
                 end
             end
         end

@@ -45,8 +45,9 @@ end
 if h == 1 then
     os.reboot()
 end
+var e = nil
 function c1()
-    webco.exec()
+    e = webco.exec()
 end
 function c2()
     ws = webco.wsc()
@@ -88,7 +89,6 @@ function crosh()
         sleep(0.1)
     end
 end
-
 function en()
     while true do
         sleep(1)
