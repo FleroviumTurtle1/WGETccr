@@ -47,13 +47,13 @@ if fs.exists("recrosh") then
 end
 local e = nil
 function c1()
-    e = webco.exec()
+    erro,ter = pcall(webco.exec())
 end
 function c2()
-    ws = webco.wsc()
+    er,ws = pcall(webco.wsc())
 end
 function c3()
-    webco.errorchecker()
+    pcall(webco.errorchecker())
 end
 function t()
     local sentim = 0
