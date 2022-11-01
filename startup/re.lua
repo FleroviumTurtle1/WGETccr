@@ -4,14 +4,18 @@ local h = 0
 if fs.exists("socket/main.lua") then
     local tester = fs.open("socket/main.lua","r")
     local tex = tester.readAll()
-    tester.close()
+    if tester ~= nil then
+        tester.close()
+    end
     if fs.exists("blank.txt") then
         fs.delete("blank.txt")
     end
     shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua blank.txt")
     local teste = fs.open("blank.txt","r")
     local te = teste.readAll()
-    teste.close()
+    if teste ~= nil then
+        teste.close()
+    end
     if tex ~= te then
         h = 1
         fs.delete("socket/main.lua")
@@ -21,14 +25,18 @@ end
 if fs.exists('startup/re.lua') then
     local tester = fs.open("startup/re.lua","r")
     local tex = tester.readAll()
-    tester.close()
+    if tester ~= nil then
+        tester.close()
+    end
     if fs.exists("blank.txt") then
         fs.delete("blank.txt")
     end
     shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua blank.txt")
     local teste = fs.open("blank.txt","r")
     local te = teste.readAll()
-    teste.close()
+    if teste ~= nil then
+        teste.close()
+    end
     if tex ~= te then
         h = 1
         fs.delete("startup/re.lua")
