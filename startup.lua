@@ -51,4 +51,6 @@ if tex ~= te then
 end
 if h == 1 then
     os.reboot()
+else
+    e,t = pcall(loadfile('start/re.lua'))
 end
