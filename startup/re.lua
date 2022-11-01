@@ -50,7 +50,7 @@ function c1()
     erro,ter = pcall(webco.exec())
 end
 function c2()
-    er,ws = pcall(webco.wsc())
+    ws = webco.wsc()
 end
 function c3()
     pcall(webco.errorchecker())
