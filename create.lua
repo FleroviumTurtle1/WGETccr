@@ -10,3 +10,4 @@ else
     fs.delete('socket/main.lua')
     shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
 end
+os.reboot()
