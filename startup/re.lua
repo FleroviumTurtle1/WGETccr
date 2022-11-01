@@ -45,7 +45,7 @@ end
 if h == 1 then
     os.reboot()
 end
-var e = nil
+local e = nil
 function c1()
     e = webco.exec()
 end
