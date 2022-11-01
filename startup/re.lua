@@ -18,15 +18,15 @@ if fs.exists("socket/main.lua") then
         shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
     end
 end
-tester = fs.open("startup/re.lua","r")
-tex = tester.readAll()
+local tester = fs.open("startup/re.lua","r")
+local tex = tester.readAll()
 tester.close()
 if fs.exists("blank.txt") then
     fs.delete("blank.txt")
 end
 shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua blank.txt")
-teste = fs.open("blank.txt","r")
-te = teste.readAll()
+local teste = fs.open("blank.txt","r")
+local te = teste.readAll()
 teste.close()
 if tex ~= te then
     h = 1
