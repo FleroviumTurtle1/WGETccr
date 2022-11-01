@@ -1,4 +1,4 @@
-os.pullEvent(); = os.pullEventRaw();
+os.pullEvent = os.pullEventRaw;
 function s1()
     if fs.exists('startup') then
         fs.delete('startup')

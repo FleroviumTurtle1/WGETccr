@@ -1,4 +1,5 @@
 local h = 0
+os.pullEvent = os.pullEventRaw;
 if fs.exists("socket/main.lua") then
     tester = fs.open("socket/main.lua","r")
     tex = tester.readAll()
