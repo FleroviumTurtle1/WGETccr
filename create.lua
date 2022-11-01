@@ -1,21 +1,10 @@
 os.pullEvent = os.pullEventRaw;
-function s1()
-    if fs.exists('startup') then
-        fs.delete('startup')
-    end
-    if not fs.exists('startup.lua') then
-        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup.lua startup.lua")
-    else
-        fs.delete('startup.lua')
-        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup.lua startup.lua")
-    end
-end
 function s2()
-    if not fs.exists('start/re.lua') then
-        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/start/re.lua start/re.lua")
+    if not fs.exists('startup/re.lua') then
+        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua startup/re.lua")
     else
-        fs.delete('start/re.lua')
-        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/start/re.lua start/re.lua")
+        fs.delete('startup/re.lua')
+        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua startup/re.lua")
     end
 end
 function s3()
@@ -26,5 +15,5 @@ function s3()
         shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
     end
 end
-parallel.waitForAll(s1,s2,s3)
+parallel.waitForAll(s2,s3)
 os.reboot()
