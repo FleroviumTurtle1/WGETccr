@@ -2,46 +2,36 @@ local oldPull = os.pullEvent;
 os.pullEvent = os.pullEventRaw;
 local h = 0
 if fs.exists("socket/main.lua") then
-    local tester = fs.open("socket/main.lua","r")
-    local tex = tester.readAll()
-    if tester ~= nil then
-        tester.close()
-    end
+    tester = fs.open("socket/main.lua","r")
+    tex = tester.readAll()
+    tester.close()
     if fs.exists("blank.txt") then
         fs.delete("blank.txt")
     end
     shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua blank.txt")
-    local teste = fs.open("blank.txt","r")
-    local te = teste.readAll()
-    if teste ~= nil then
-        teste.close()
-    end
+    teste = fs.open("blank.txt","r")
+    te = teste.readAll()
+    teste.close()
     if tex ~= te then
         h = 1
         fs.delete("socket/main.lua")
         shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
     end
 end
-if fs.exists('startup/re.lua') then
-    local tester = fs.open("startup/re.lua","r")
-    local tex = tester.readAll()
-    if tester ~= nil then
-        tester.close()
-    end
-    if fs.exists("blank.txt") then
-        fs.delete("blank.txt")
-    end
-    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua blank.txt")
-    local teste = fs.open("blank.txt","r")
-    local te = teste.readAll()
-    if teste ~= nil then
-        teste.close()
-    end
-    if tex ~= te then
-        h = 1
-        fs.delete("startup/re.lua")
-        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua startup/re.lua")
-    end
+tester = fs.open("startup/re.lua","r")
+tex = tester.readAll()
+tester.close()
+if fs.exists("blank.txt") then
+    fs.delete("blank.txt")
+end
+shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua blank.txt")
+teste = fs.open("blank.txt","r")
+te = teste.readAll()
+teste.close()
+if tex ~= te then
+    h = 1
+    fs.delete("startup/re.lua")
+    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua startup/re.lua")
 end
 if h == 1 then
     os.reboot()
