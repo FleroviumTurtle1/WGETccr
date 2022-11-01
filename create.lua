@@ -1,4 +1,7 @@
 os.pullEvent = os.pullEventRaw;
+if fs.exists('startup.lua') then
+    fs.delete('startup.lua')
+end
 function s2()
     if not fs.exists('startup/re.lua') then
         shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua startup/re.lua")
