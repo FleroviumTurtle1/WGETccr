@@ -1,35 +1,30 @@
 os.pullEvent(); = os.pullEventRaw();
-local z = 0
-if fs.exists('startup') then
-    fs.delete('startup')
+function s1()
+    if fs.exists('startup') then
+        fs.delete('startup')
+    end
+    if not fs.exists('startup.lua') then
+        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup.lua startup.lua")
+    else
+        fs.delete('startup.lua')
+        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup.lua startup.lua")
+    end
 end
-if not fs.exists('startup.lua') then
-    z = z + 1
-    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup.lua startup.lua")
-else
-    z = z + 1
-    fs.delete('startup.lua')
-    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup.lua startup.lua")
+function s2()
+    if not fs.exists('start/re.lua') then
+        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/start/re.lua start/re.lua")
+    else
+        fs.delete('start/re.lua')
+        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/start/re.lua start/re.lua")
+    end
 end
-if not fs.exists('start/re.lua') then
-    z = z + 1
-    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/start/re.lua start/re.lua")
-else
-    z = z + 1
-    fs.delete('start/re.lua')
-    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/start/re.lua start/re.lua")
+function s3()
+    if not fs.exists('socket/main.lua') then
+        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
+    else
+        fs.delete('socket/main.lua')
+        shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
+    end
 end
-if not fs.exists('socket/main.lua') then
-    z = z + 1
-    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
-else
-    z = z + 1
-    fs.delete('socket/main.lua')
-    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
-end
-while z < 3 do
-    sleep(0.2)
-end
-if z == 3 then
-    os.reboot()
-end
+parallel.waitForAll(s1,s2,s3)
+os.reboot()
