@@ -49,7 +49,7 @@ if not fs.exists("cords.txt") then
     tem = fs.open("cords.txt","w")
     write("Cords(x,y,z): ")
     z1 = tostring(string.gsub(read(),",","\n"))
-    write("Facing(1/n,2/e,3/s,4/s): ")
+    write("Facing(n or e or s or w): ")
     z2 = tostring(read())
     tem.write(z1.."\n"..z2)
     tem.close()
