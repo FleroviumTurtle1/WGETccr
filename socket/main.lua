@@ -20,21 +20,25 @@ function turnL()
         rea()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+        cords.close()
     elseif corFace == "e" then
         corFace = "s"
         rea()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+        cords.close()
     elseif corFace == "s" then
         corFace = "w"
         rea()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+        cords.close()
     elseif corFace == "w" then
         corFace = "n"
         rea()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+        cords.close()
     end
 end
 function turnR()
@@ -43,21 +47,25 @@ function turnR()
         rea()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+        cords.close()
     elseif corFace == "e" then
         corFace = "n"
         rea()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+        cords.close()
     elseif corFace == "s" then
         corFace = "e"
         rea()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+        cords.close()
     elseif corFace == "w" then
         corFace = "s"
         rea()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+        cords.close()
     end
 end
 function module.exec()
@@ -110,12 +118,38 @@ function module.exec()
                     elseif srec == "back" then
                         if turtle.getFuelLevel() > 0 then
                             turtle.back()
+                            rea()
+                            cords = fs.open("cords.txt","w")
+                            if corFace == "n" then
+                                corZ = tostring(tonumber(corZ)+1)
+                            elseif corFace == "e" then
+                                corX = tostring(tonumber(corX)-1)
+                            elseif corFace == "s" then
+                                corZ = tostring(tonumber(corZ)-1)
+                            elseif corFace == "w" then
+                                corX = tostring(tonumber(corX)+1)
+                            end
+                            cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+                            cords.close()
                         else
                             ws.send("webNo fuel left!")
                         end
                     elseif srec == "for" then
                         if turtle.getFuelLevel() > 0 then
                             turtle.forward()
+                            rea()
+                            cords = fs.open("cords.txt","w")
+                            if corFace == "n" then
+                                corZ = tostring(tonumber(corZ)-1)
+                            elseif corFace == "e" then
+                                corX = tostring(tonumber(corX)+1)
+                            elseif corFace == "s" then
+                                corZ = tostring(tonumber(corZ)+1)
+                            elseif corFace == "w" then
+                                corX = tostring(tonumber(corX)-1)
+                            end
+                            cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+                            cords.close()
                         else
                             ws.send("webNo fuel left!")
                         end
@@ -149,6 +183,7 @@ function module.exec()
                             cords = fs.open("cords.txt","w")
                             corY = tostring(tonumber(corY)+1)
                             cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+                            cords.close()
                         else
                             ws.send("webNo fuel left!")
                         end
@@ -159,6 +194,7 @@ function module.exec()
                             cords = fs.open("cords.txt","w")
                             corY = tostring(tonumber(corY)-1)
                             cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+                            cords.close()
                         else
                             ws.send("webNo fuel left!")
                         end
