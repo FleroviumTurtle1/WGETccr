@@ -12,6 +12,11 @@ function module.exec()
         sleep(0.1)
     until errcheck == false and ws
     while true do
+        cords = fs.open("cords.txt","r")
+        corX = cords.readLine()
+        corY = cords.readLine()
+        corZ = cords.readLine()
+        corFace = cords.readLine()
         sleep(0.1)
         if ws and not errcheck then
             sleep(0.1)
