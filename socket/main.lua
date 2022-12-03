@@ -143,14 +143,24 @@ function module.exec()
                     elseif srec == "getfuel" then
                         ws.send("web"..turtle.getFuelLevel())
                     elseif srec == "up" then
-                        turtle.up()
                         if turtle.getFuelLevel() > 0 then
-                            
+                            turtle.up()
+                            rea()
+                            cords = fs.open("cords.txt","w")
+                            corY = tostring(tonumber(corY)+1)
+                            cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+                        else
+                            ws.send("webNo fuel left!")
                         end
                     elseif srec == "down" then
-                        turtle.down()
                         if turtle.getFuelLevel() > 0 then
-                            
+                            turtle.down()
+                            rea()
+                            cords = fs.open("cords.txt","w")
+                            corY = tostring(tonumber(corY)-1)
+                            cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+                        else
+                            ws.send("webNo fuel left!")
                         end
                     end
                 elseif not turtle then
