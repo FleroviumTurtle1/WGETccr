@@ -1,15 +1,6 @@
 local oldPull = os.pullEvent;
 os.pullEvent = os.pullEventRaw;
 local h = 0
-if not fs.exists("cords.txt") then
-    tem = fs.open("cords.txt","w")
-    write("Cords(1,2,3): ")
-    z1 = tostring(string.gsub(read(),",","\n"))
-    write("Facing(1/n,2/e,3/s,4/s): ")
-    z2 = tostring(read())
-    tem.write(z1.."\n"..z2)
-    tem.close()
-end
 if fs.exists("socket/main.lua") then
     tester = fs.open("socket/main.lua","r")
     tex = tester.readAll()
@@ -53,6 +44,15 @@ if fs.exists("end") then
 end
 if fs.exists("recrosh") then
     fs.delete("recrosh")
+end
+if not fs.exists("cords.txt") then
+    tem = fs.open("cords.txt","w")
+    write("Cords(1,2,3): ")
+    z1 = tostring(string.gsub(read(),",","\n"))
+    write("Facing(1/n,2/e,3/s,4/s): ")
+    z2 = tostring(read())
+    tem.write(z1.."\n"..z2)
+    tem.close()
 end
 local e = nil
 function c1()
