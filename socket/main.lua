@@ -5,7 +5,10 @@ local st = true
 local pas
 local sent = 0
 local module = {}
-local corX,corY,corZ,corFace
+local corX
+local corY
+local corZ
+local corFace
 function rea()
     cords = fs.open("cords.txt","r")
     corX = cords.readLine()
