@@ -5,10 +5,10 @@ local st = true
 local pas
 local sent = 0
 local module = {}
-local corX = 0
-local corY = 0
-local corZ = 0
-local corFace = "n"
+local corX
+local corY
+local corZ
+local corFace
 function rea()
     cords = fs.open("cords.txt","r")
     corX = cords.readLine()
@@ -16,9 +16,10 @@ function rea()
     corZ = cords.readLine()
     corFace = cords.readLine()
     cords.close()
+    return corX,corY,corZ,corFace
 end
 function turnL()
-    corFace = tostring(corFace)
+    corX,corY,corZ,corFace = rea()
     if corFace == "n" then
         corFace = "e"
         rea()
@@ -50,7 +51,7 @@ function turnL()
     end
 end
 function turnR()
-    corFace = tostring(corFace)
+    corX,corY,corZ,corFace = rea()
     if corFace == "n" then
         corFace = "w"
         rea()
