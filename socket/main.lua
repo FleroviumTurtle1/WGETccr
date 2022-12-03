@@ -6,26 +6,58 @@ local pas
 local sent = 0
 local module = {}
 local corX,corY,corZ,corFace
+function rea()
+    cords = fs.open("cords.txt","r")
+    corX = cords.readLine()
+    corY = cords.readLine()
+    corZ = cords.readLine()
+    corFace = cords.readLine()
+    cords.close()
+end
 function turnL()
     if corFace == "n" then
         corFace = "e"
+        rea()
+        cords = fs.open("cords.txt","w")
+        cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
     elseif corFace == "e" then
         corFace = "s"
+        rea()
+        cords = fs.open("cords.txt","w")
+        cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
     elseif corFace == "s" then
         corFace = "w"
+        rea()
+        cords = fs.open("cords.txt","w")
+        cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
     elseif corFace == "w" then
         corFace = "n"
+        rea()
+        cords = fs.open("cords.txt","w")
+        cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
     end
 end
 function turnR()
     if corFace == "n" then
         corFace = "w"
+        rea()
+        cords = fs.open("cords.txt","w")
+        cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
     elseif corFace == "e" then
         corFace = "n"
+        rea()
+        cords = fs.open("cords.txt","w")
+        cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
     elseif corFace == "s" then
         corFace = "e"
+        rea()
+        cords = fs.open("cords.txt","w")
+        cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
     elseif corFace == "w" then
         corFace = "s"
+        rea()
+        cords = fs.open("cords.txt","w")
+        cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
     end
 end
 function module.exec()
@@ -35,12 +67,8 @@ function module.exec()
         sleep(0.1)
     until errcheck == false and ws
     while true do
-        cords = fs.open("cords.txt","r")
-        corX = cords.readLine()
-        corY = cords.readLine()
-        corZ = cords.readLine()
-        corFace = cords.readLine()
         sleep(0.1)
+        rea()
         if ws and not errcheck then
             sleep(0.1)
             if os.getComputerLabel() and sent == 0 then
@@ -75,17 +103,21 @@ function module.exec()
                 elseif turtle then
                     if srec == "left" then
                         turtle.turnLeft()
+                        turnL()
                     elseif srec == "right" then
                         turtle.turnRight()
+                        turnR()
                     elseif srec == "back" then
-                        turtle.back()
                         if turtle.getFuelLevel() > 0 then
-                            
+                            turtle.back()
+                        else
+                            ws.send("webNo fuel left!")
                         end
                     elseif srec == "for" then
-                        turtle.forward()
                         if turtle.getFuelLevel() > 0 then
-                            
+                            turtle.forward()
+                        else
+                            ws.send("webNo fuel left!")
                         end
                     elseif srec == "insp" then
                         x,i = turtle.inspect()
