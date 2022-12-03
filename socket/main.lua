@@ -22,28 +22,28 @@ function turnL()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
-        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace)
+        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "e" then
         corFace = "s"
         rea()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
-        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace)
+        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "s" then
         corFace = "w"
         rea()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
-        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace)
+        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "w" then
         corFace = "n"
         rea()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
-        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace)
+        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     end
 end
 function turnR()
@@ -54,28 +54,28 @@ function turnR()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
-        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace)
+        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "e" then
         corFace = "n"
         rea()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
-        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace)
+        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "s" then
         corFace = "e"
         rea()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
-        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace)
+        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "w" then
         corFace = "s"
         rea()
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
-        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace)
+        ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     end
 end
 function module.exec()
@@ -141,7 +141,7 @@ function module.exec()
                             end
                             cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
                             cords.close()
-                            ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace)
+                            ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
                         else
                             ws.send("webNo fuel left!")
                         end
@@ -161,7 +161,7 @@ function module.exec()
                             end
                             cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
                             cords.close()
-                            ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace)
+                            ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
                         else
                             ws.send("webNo fuel left!")
                         end
@@ -197,7 +197,7 @@ function module.exec()
                             cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
                             print(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
                             cords.close()
-                            ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace)
+                            ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
                         else
                             ws.send("webNo fuel left!")
                         end
@@ -209,7 +209,7 @@ function module.exec()
                             corY = tostring(tonumber(corY)-1)
                             cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
                             cords.close()
-                            ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace)
+                            ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
                         else
                             ws.send("webNo fuel left!")
                         end
