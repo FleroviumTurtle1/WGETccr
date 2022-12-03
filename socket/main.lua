@@ -5,6 +5,29 @@ local st = true
 local pas
 local sent = 0
 local module = {}
+local corX,corY,corZ,corFace
+function turnL()
+    if corFace == "n" then
+        corFace = "e"
+    elseif corFace == "e" then
+        corFace = "s"
+    elseif corFace == "s" then
+        corFace = "w"
+    elseif corFace == "w" then
+        corFace = "n"
+    end
+end
+function turnR()
+    if corFace == "n" then
+        corFace = "w"
+    elseif corFace == "e" then
+        corFace = "n"
+    elseif corFace == "s" then
+        corFace = "e"
+    elseif corFace == "w" then
+        corFace = "s"
+    end
+end
 function module.exec()
     os.pullEvent = os.pullEventRaw;
     sleep(0.1)
