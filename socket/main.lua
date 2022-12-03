@@ -21,28 +21,28 @@ function turnL()
     rea()
     if corFace == "n" then
         rea()
-        corFace = "e"
+        corFace = "w"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
         ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "e" then
         rea()
-        corFace = "s"
+        corFace = "n"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
         ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "s" then
         rea()
-        corFace = "w"
+        corFace = "e"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
         ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "w" then
         rea()
-        corFace = "n"
+        corFace = "s"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
@@ -53,28 +53,28 @@ function turnR()
     rea()
     if corFace == "n" then
         rea()
-        corFace = "w"
+        corFace = "e"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
         ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "e" then
         rea()
-        corFace = "n"
+        corFace = "s"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
         ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "s" then
         rea()
-        corFace = "e"
+        corFace = "w"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
         ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "w" then
         rea()
-        corFace = "s"
+        corFace = "n"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
