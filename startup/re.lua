@@ -4,7 +4,7 @@ local h = 0
 if not fs.exists("cords.txt") then
     tem = fs.open("cords.txt","w")
     write("Cords(1,2,3): ")
-    z1 = tostring(read())
+    z1 = tostring(string.gsub(read(),",","\n"))
     write("Facing(1/n,2/e,3/s,4/s): ")
     z2 = tostring(read())
     tem.write(z1.."\n"..z2)
