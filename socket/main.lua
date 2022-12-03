@@ -16,33 +16,32 @@ function rea()
     corZ = cords.readLine()
     corFace = cords.readLine()
     cords.close()
-    return corX,corY,corZ,corFace
 end
 function turnL()
-    corX,corY,corZ,corFace = rea()
+    rea()
     if corFace == "n" then
-        corX,corY,corZ,corFace = rea()
+        rea()
         corFace = "e"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
         ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "e" then
-        corX,corY,corZ,corFace = rea()
+        rea()
         corFace = "s"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
         ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "s" then
-        corX,corY,corZ,corFace = rea()
+        rea()
         corFace = "w"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
         ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "w" then
-        corX,corY,corZ,corFace = rea()
+        rea()
         corFace = "n"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
@@ -51,30 +50,30 @@ function turnL()
     end
 end
 function turnR()
-    corX,corY,corZ,corFace = rea()
+    rea()
     if corFace == "n" then
-        corX,corY,corZ,corFace = rea()
+        rea()
         corFace = "w"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
         ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "e" then
-        corX,corY,corZ,corFace = rea()
+        rea()
         corFace = "n"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
         ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "s" then
-        corX,corY,corZ,corFace = rea()
+        rea()
         corFace = "e"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
         cords.close()
         ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
     elseif corFace == "w" then
-        corX,corY,corZ,corFace = rea()
+        rea()
         corFace = "s"
         cords = fs.open("cords.txt","w")
         cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
@@ -90,7 +89,7 @@ function module.exec()
     until errcheck == false and ws
     while true do
         sleep(0.1)
-        corX,corY,corZ,corFace = rea()
+        rea()
         if ws and not errcheck then
             sleep(0.1)
             if os.getComputerLabel() and sent == 0 then
@@ -132,7 +131,7 @@ function module.exec()
                     elseif srec == "back" then
                         if turtle.getFuelLevel() > 0 then
                             turtle.back()
-                            corX,corY,corZ,corFace = rea()
+                            rea()
                             cords = fs.open("cords.txt","w")
                             if corFace == "n" then
                                 corZ = tostring(tonumber(corZ)+1)
@@ -152,7 +151,7 @@ function module.exec()
                     elseif srec == "for" then
                         if turtle.getFuelLevel() > 0 then
                             turtle.forward()
-                            corX,corY,corZ,corFace = rea()
+                            rea()
                             cords = fs.open("cords.txt","w")
                             if corFace == "n" then
                                 corZ = tostring(tonumber(corZ)-1)
@@ -195,7 +194,7 @@ function module.exec()
                     elseif srec == "up" then
                         if turtle.getFuelLevel() > 0 then
                             turtle.up()
-                            corX,corY,corZ,corFace = rea()
+                            rea()
                             cords = fs.open("cords.txt","w")
                             corY = tostring(tonumber(corY)+1)
                             cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
@@ -208,7 +207,7 @@ function module.exec()
                     elseif srec == "down" then
                         if turtle.getFuelLevel() > 0 then
                             turtle.down()
-                            corX,corY,corZ,corFace = rea()
+                            rea()
                             cords = fs.open("cords.txt","w")
                             corY = tostring(tonumber(corY)-1)
                             cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
