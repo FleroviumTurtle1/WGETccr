@@ -15,7 +15,7 @@ function rea()
     cords.close()
 end
 function turnL()
-    corFace = corFace.tostring()
+    corFace = tostring(corFace)
     if corFace == "n" then
         corFace = "e"
         rea()
@@ -47,7 +47,7 @@ function turnL()
     end
 end
 function turnR()
-    corFace = corFace.tostring()
+    corFace = tostring(corFace)
     if corFace == "n" then
         corFace = "w"
         rea()
