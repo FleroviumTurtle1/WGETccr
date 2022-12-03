@@ -183,6 +183,7 @@ function module.exec()
                             cords = fs.open("cords.txt","w")
                             corY = tostring(tonumber(corY)+1)
                             cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+                            print(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
                             cords.close()
                         else
                             ws.send("webNo fuel left!")
