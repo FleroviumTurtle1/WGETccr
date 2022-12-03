@@ -15,6 +15,7 @@ function rea()
     cords.close()
 end
 function turnL()
+    corFace = corFace.tostring()
     if corFace == "n" then
         corFace = "e"
         rea()
@@ -46,6 +47,7 @@ function turnL()
     end
 end
 function turnR()
+    corFace = corFace.tostring()
     if corFace == "n" then
         corFace = "w"
         rea()
@@ -118,11 +120,11 @@ function module.exec()
                     sent = 1
                 elseif turtle then
                     if srec == "left" then
-                        turtle.turnLeft()
                         turnL()
+                        turtle.turnLeft()
                     elseif srec == "right" then
-                        turtle.turnRight()
                         turnR()
+                        turtle.turnRight()
                     elseif srec == "back" then
                         if turtle.getFuelLevel() > 0 then
                             turtle.back()
