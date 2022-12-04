@@ -93,6 +93,9 @@ function module.exec()
         sleep(0.1)
         rea()
         if ws and not errcheck then
+            if not os.getComputerLabel()
+                ws.send("CompLabelRequest"..os.getComputerID());
+            end
             sleep(0.1)
             if os.getComputerLabel() and sent == 0 then
                 rea()
@@ -240,9 +243,6 @@ function module.wsc()
         if redl then ws,err = http.websocket("ws://"..redl) end
         errcheck = false
         sleep(0.1)
-        if ws and not os.getComputerLabel() then
-            ws.send("CompLabelRequest"..os.getComputerID());
-        end
         fil.close()
         if not ws then
             term.clear()
