@@ -144,11 +144,11 @@ function module.exec()
                             if corFace == "n" then
                                 corZ = tostring(tonumber(corZ)+1)
                             elseif corFace == "e" then
-                                corX = tostring(tonumber(corX)+1)
+                                corX = tostring(tonumber(corX)-1)
                             elseif corFace == "s" then
                                 corZ = tostring(tonumber(corZ)-1)
                             elseif corFace == "w" then
-                                corX = tostring(tonumber(corX)-1)
+                                corX = tostring(tonumber(corX)+1)
                             end
                             cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
                             cords.close()
@@ -164,11 +164,11 @@ function module.exec()
                             if corFace == "n" then
                                 corZ = tostring(tonumber(corZ)-1)
                             elseif corFace == "e" then
-                                corX = tostring(tonumber(corX)-1)
+                                corX = tostring(tonumber(corX)+1)
                             elseif corFace == "s" then
                                 corZ = tostring(tonumber(corZ)+1)
                             elseif corFace == "w" then
-                                corX = tostring(tonumber(corX)+1)
+                                corX = tostring(tonumber(corX)-1)
                             end
                             cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
                             cords.close()
