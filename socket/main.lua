@@ -108,13 +108,13 @@ function module.exec()
                 if tostring(tempstringi) == tostring(os.getComputerLabel()) then
                     pas = 1
                     srec = string.sub(rec,tempnum+1)
-                elseif tonumber(string.sub(rec,0,1)) == os.getComputerID() then
+                elseif tonumber(string.sub(rec,0,string.len(tostring(os.getComputerID())))) == os.getComputerID() then
                     pas = 2
                 else
                     pas = 0
                 end
             else
-                if tonumber(string.sub(rec,0,string.len(os.getComputerID()))) == os.getComputerID() then
+                if tonumber(string.sub(rec,0,string.len(tostring(os.getComputerID())))) == os.getComputerID() then
                     pas = 2
                 else
                     pas = 0
