@@ -55,6 +55,7 @@ if not fs.exists("cords.txt") then
     z2 = tostring(read())
     tem.write(z1.."\n"..z2)
     tem.close()
+    os.reboot()
 end
 local e = nil
 function c1()
