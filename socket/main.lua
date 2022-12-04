@@ -93,7 +93,7 @@ function module.exec()
         sleep(0.1)
         rea()
         if ws and not errcheck then
-            if not os.getComputerLabel()
+            if not os.getComputerLabel() then
                 ws.send("CompLabelRequest"..os.getComputerID());
             end
             sleep(0.1)
