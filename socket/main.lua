@@ -114,7 +114,7 @@ function module.exec()
                     pas = 0
                 end
             else
-                if tonumber(string.sub(rec,0,1)) == os.getComputerID() then
+                if tonumber(string.sub(rec,0,len(os.getComputerID()))) == os.getComputerID() then
                     pas = 2
                 else
                     pas = 0
