@@ -84,10 +84,12 @@ function t()
     end
 end
 function start()
-    webco = require("../socket/main")
-    parallel.waitForAny(c2,c3)
-    parallel.waitForAny(c1,t)
-    os.pullEvent = oldPull;
+    local r,tr = pcall(function()
+        webco = require("../socket/main")
+        parallel.waitForAny(c2,c3)
+        parallel.waitForAny(c1,t)
+        os.pullEvent = oldPull;
+    end)
 end
 local ndone = true
 function crosh()
@@ -124,5 +126,5 @@ function re()
         sleep(0.1)
     end
 end
-parallel.waitForAll(pcall(start),shel,re)
+parallel.waitForAll(start,shel,re)
 os.reboot()
