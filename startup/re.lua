@@ -46,6 +46,8 @@ if fs.exists("recrosh") then
     fs.delete("recrosh")
 end
 if not fs.exists("cords.txt") then
+    term.clear()
+    term.setCursorPos(1,1)
     tem = fs.open("cords.txt","w")
     write("Cords(x,y,z): ")
     z1 = tostring(string.gsub(read(),",","\n"))
