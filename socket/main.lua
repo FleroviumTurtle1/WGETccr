@@ -9,6 +9,7 @@ local corX
 local corY
 local corZ
 local corFace
+local cordin
 function rea()
     cords = fs.open("cords.txt","r")
     corX = cords.readLine()
@@ -94,7 +95,9 @@ function module.exec()
         if ws and not errcheck then
             sleep(0.1)
             if os.getComputerLabel() and sent == 0 then
-                ws.send("Comuts "..os.getComputerID().." "..os.getComputerLabel())
+                rea()
+                cordin = corX..","..corY..","..corZ..","..corFace
+                ws.send("Comuts "..os.getComputerID().." "..os.getComputerLabel().." "..cordin)
                 sent = 1
             end
             rec = ws.receive()
@@ -120,7 +123,7 @@ function module.exec()
             if pas == 1 or pas == 2 then
                 if string.sub(srec,0,5) == "label" then
                     os.setComputerLabel(string.sub(srec,6))
-                    ws.send("Comuts "..os.getComputerID().." "..os.getComputerLabel())
+                    ws.send("Comuts "..os.getComputerID().." "..os.getComputerLabel().." "..cordin)
                     sent = 1
                 elseif turtle then
                     if srec == "left" then
