@@ -104,7 +104,7 @@ function module.exec()
                 sent = 1
             end
             rec = ws.receive()
-            srec = string.sub(rec,2)
+            srec = string.sub(rec,string.len(tostring(os.getComputerID()))+1)
             if os.getComputerLabel() then
                 tempnum = tonumber(string.len(os.getComputerLabel()))
                 tempstringi = tostring(string.sub(rec,0,tempnum))
