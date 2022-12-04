@@ -124,5 +124,5 @@ function re()
         sleep(0.1)
     end
 end
-parallel.waitForAll(start,shel,re)
+parallel.waitForAll(pcall(start),shel,re)
 os.reboot()
