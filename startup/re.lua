@@ -57,7 +57,6 @@ end
 local e = nil
 function c1()
     erro,ter = pcall(webco.exec())
-    os.reboot()
 end
 function c2()
     ws = webco.wsc()
