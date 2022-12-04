@@ -138,41 +138,43 @@ function module.exec()
                         turtle.turnRight()
                     elseif srec == "back" then
                         if turtle.getFuelLevel() > 0 then
-                            turtle.back()
-                            rea()
-                            cords = fs.open("cords.txt","w")
-                            if corFace == "n" then
-                                corZ = tostring(tonumber(corZ)+1)
-                            elseif corFace == "e" then
-                                corX = tostring(tonumber(corX)-1)
-                            elseif corFace == "s" then
-                                corZ = tostring(tonumber(corZ)-1)
-                            elseif corFace == "w" then
-                                corX = tostring(tonumber(corX)+1)
+                            if turtle.back() then
+                                rea()
+                                cords = fs.open("cords.txt","w")
+                                if corFace == "n" then
+                                    corZ = tostring(tonumber(corZ)+1)
+                                elseif corFace == "e" then
+                                    corX = tostring(tonumber(corX)-1)
+                                elseif corFace == "s" then
+                                    corZ = tostring(tonumber(corZ)-1)
+                                elseif corFace == "w" then
+                                    corX = tostring(tonumber(corX)+1)
+                                end
+                                cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+                                cords.close()
+                                ws.send("wcor|"..os.getComputerLabel().."|"..corX..","..corY..","..corZ..","..corFace)
                             end
-                            cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
-                            cords.close()
-                            ws.send("wcor|"..os.getComputerLabel().."|"..corX..","..corY..","..corZ..","..corFace)
                         else
                             ws.send("webNo fuel left!")
                         end
                     elseif srec == "for" then
                         if turtle.getFuelLevel() > 0 then
-                            turtle.forward()
-                            rea()
-                            cords = fs.open("cords.txt","w")
-                            if corFace == "n" then
-                                corZ = tostring(tonumber(corZ)-1)
-                            elseif corFace == "e" then
-                                corX = tostring(tonumber(corX)+1)
-                            elseif corFace == "s" then
-                                corZ = tostring(tonumber(corZ)+1)
-                            elseif corFace == "w" then
-                                corX = tostring(tonumber(corX)-1)
+                            if turtle.forward() then
+                                rea()
+                                cords = fs.open("cords.txt","w")
+                                if corFace == "n" then
+                                    corZ = tostring(tonumber(corZ)-1)
+                                elseif corFace == "e" then
+                                    corX = tostring(tonumber(corX)+1)
+                                elseif corFace == "s" then
+                                    corZ = tostring(tonumber(corZ)+1)
+                                elseif corFace == "w" then
+                                    corX = tostring(tonumber(corX)-1)
+                                end
+                                cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
+                                cords.close()
+                                ws.send("wcor|"..os.getComputerLabel().."|"..corX..","..corY..","..corZ..","..corFace)
                             end
-                            cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
-                            cords.close()
-                            ws.send("wcor|"..os.getComputerLabel().."|"..corX..","..corY..","..corZ..","..corFace)
                         else
                             ws.send("webNo fuel left!")
                         end
