@@ -82,6 +82,7 @@ function turnR()
     end
 end
 function module.exec()
+    local oldPull = os.pullEvent;
     os.pullEvent = os.pullEventRaw;
     sleep(0.1)
     repeat
@@ -97,9 +98,7 @@ function module.exec()
                 sent = 1
             end
             rec = ws.receive()
-            if rec ~= nil then
-                srec = string.sub(rec,2)
-            end
+            srec = string.sub(rec,2)
             if os.getComputerLabel() then
                 tempnum = tonumber(string.len(os.getComputerLabel()))
                 tempstringi = tostring(string.sub(rec,0,tempnum))
