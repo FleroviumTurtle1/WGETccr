@@ -312,7 +312,7 @@ function module.errorchecker()
                     fi.close()
                     os.reboot()
                 elseif h == "n" then
-                    intentional.error
+                    print(intentional.error)
                 else
                     os.reboot()
                 end
