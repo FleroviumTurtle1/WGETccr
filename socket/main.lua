@@ -198,7 +198,6 @@ function module.exec()
                             cords = fs.open("cords.txt","w")
                             corY = tostring(tonumber(corY)+1)
                             cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
-                            print(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
                             cords.close()
                             ws.send("wcor|"..corX.."|"..corY.."|"..corZ.."|"..corFace.."|"..os.getComputerLabel())
                         else
