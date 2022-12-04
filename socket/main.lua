@@ -123,6 +123,7 @@ function module.exec()
             if pas == 1 or pas == 2 then
                 if string.sub(srec,0,5) == "label" then
                     os.setComputerLabel(string.sub(srec,6))
+                    cordin = corX..","..corY..","..corZ..","..corFace
                     ws.send("Comuts "..os.getComputerID().." "..os.getComputerLabel().." "..cordin)
                     sent = 1
                 elseif turtle then
