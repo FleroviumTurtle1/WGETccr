@@ -287,8 +287,8 @@ function module.wsc()
         sleep(0.1)
     end
 end
-local tim = os.startTimer(5)
 function module.errorchecker()
+    local tim = os.startTimer(5)
     os.pullEvent = os.pullEventRaw;
     while true do
         local event, timeid = os.pullEvent()
@@ -311,6 +311,8 @@ function module.errorchecker()
                     fi.write(l)
                     fi.close()
                     os.reboot()
+                elseif h == "n" then
+                    intentional.error
                 else
                     os.reboot()
                 end
