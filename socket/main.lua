@@ -142,11 +142,11 @@ function module.exec()
                             rea()
                             cords = fs.open("cords.txt","w")
                             if corFace == "n" then
-                                corZ = tostring(tonumber(corZ)-1)
+                                corZ = tostring(tonumber(corZ)+1)
                             elseif corFace == "e" then
                                 corX = tostring(tonumber(corX)+1)
                             elseif corFace == "s" then
-                                corZ = tostring(tonumber(corZ)+1)
+                                corZ = tostring(tonumber(corZ)-1)
                             elseif corFace == "w" then
                                 corX = tostring(tonumber(corX)-1)
                             end
@@ -162,11 +162,11 @@ function module.exec()
                             rea()
                             cords = fs.open("cords.txt","w")
                             if corFace == "n" then
-                                corZ = tostring(tonumber(corZ)+1)
+                                corZ = tostring(tonumber(corZ)-1)
                             elseif corFace == "e" then
                                 corX = tostring(tonumber(corX)-1)
                             elseif corFace == "s" then
-                                corZ = tostring(tonumber(corZ)-1)
+                                corZ = tostring(tonumber(corZ)+1)
                             elseif corFace == "w" then
                                 corX = tostring(tonumber(corX)+1)
                             end
