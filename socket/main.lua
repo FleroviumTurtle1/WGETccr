@@ -97,7 +97,9 @@ function module.exec()
                 sent = 1
             end
             rec = ws.receive()
-            srec = string.sub(rec,2)
+            if rec ~= nil then
+                srec = string.sub(rec,2)
+            end
             if os.getComputerLabel() then
                 tempnum = tonumber(string.len(os.getComputerLabel()))
                 tempstringi = tostring(string.sub(rec,0,tempnum))
