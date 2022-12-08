@@ -90,7 +90,6 @@ function start()
         parallel.waitForAny(c1,t)
         os.pullEvent = oldPull;
     end)
-    print(string.sub(tr,-27))
     if string.sub(tr,-27) == "'intentional' (a nil value)" then
         print(intentional.error)
     end
