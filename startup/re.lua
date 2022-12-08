@@ -91,7 +91,7 @@ function start()
         os.pullEvent = oldPull;
     end)
     print(tr)
-    if tr == "intentional" then
+    if tr == "main.lua:255: attempt to index global 'intentional' (a nil value)" then
         print(intentional.error)
     end
 end
