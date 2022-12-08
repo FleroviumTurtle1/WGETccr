@@ -1,8 +1,6 @@
 local oldPull = os.pullEvent;
 os.pullEvent = os.pullEventRaw;
 local h = 0
-term.clear()
-term.setCursorPos(1,1)
 if fs.exists("socket/main.lua") then
     tester = fs.open("socket/main.lua","r")
     tex = tester.readAll()
@@ -99,7 +97,7 @@ end
 local ndone = true
 function crosh()
     while true do
-        if ndone then
+        if ndone and ws then
             term.clear()
             term.setCursorPos(1,1)
             ndone = false
@@ -116,13 +114,8 @@ function en()
         end
     end
 end
-function clea()
-    sleep(3)
-    term.clear()
-    term.setCursorPos(1,1)
-end
 function shel()
-    parallel.waitForAny(crosh,en,clea)
+    parallel.waitForAny(crosh,en)
 end
 function re()
     while true do
