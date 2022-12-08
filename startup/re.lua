@@ -62,11 +62,7 @@ function c1()
     erro,ter = pcall(webco.exec())
 end
 function c2()
-    stat,ws = pcall(webco.wsc())
-    print(ws)
-    if ws == "terminated" or ws == "intentional" then
-        print(intentional.error)
-    end
+    ws = webco.wsc()
 end
 function c3()
     pcall(webco.errorchecker())
@@ -94,8 +90,9 @@ function start()
         parallel.waitForAny(c1,t)
         os.pullEvent = oldPull;
     end)
-    if r == "intentional" then
-       print(intentional.error)
+    print(tr)
+    if tr == "intentional" then
+        intentional.error
     end
 end
 local ndone = true
