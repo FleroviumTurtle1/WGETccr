@@ -19,7 +19,7 @@ function s3()
     end
 end
 function s4()
-    while not fs.exists('socket/main.lua') and no fs.exists('startup/re.lua') do
+    while not fs.exists('socket/main.lua') and not fs.exists('startup/re.lua') do
         coroutine.yield()
     end
     os.reboot()
