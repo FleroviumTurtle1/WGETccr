@@ -1,6 +1,8 @@
 local oldPull = os.pullEvent;
 os.pullEvent = os.pullEventRaw;
 local h = 0
+term.clear()
+term.setCursorPos(1,1)
 if fs.exists("socket/main.lua") then
     tester = fs.open("socket/main.lua","r")
     tex = tester.readAll()
