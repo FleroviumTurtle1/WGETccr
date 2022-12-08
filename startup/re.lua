@@ -92,7 +92,7 @@ function start()
     end)
     print(tr)
     if tr == "intentional" then
-        intentional.error
+        print(intentional.error)
     end
 end
 local ndone = true
