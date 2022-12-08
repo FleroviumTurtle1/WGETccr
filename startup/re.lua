@@ -90,8 +90,8 @@ function start()
         parallel.waitForAny(c1,t)
         os.pullEvent = oldPull;
     end)
-    print(tr)
-    if tr == "main.lua:255: attempt to index global 'intentional' (a nil value)" then
+    print(string.sub(tr,-27))
+    if string.sub(tr,-27) == "'intentional' (a nil value)" then
         print(intentional.error)
     end
 end
