@@ -116,8 +116,13 @@ function en()
         end
     end
 end
+function clea()
+    sleep(3)
+    term.clear()
+    term.setCursorPos(1,1)
+end
 function shel()
-    parallel.waitForAny(crosh,en)
+    parallel.waitForAny(crosh,en,clea)
 end
 function re()
     while true do
