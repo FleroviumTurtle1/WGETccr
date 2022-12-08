@@ -62,7 +62,11 @@ function c1()
     erro,ter = pcall(webco.exec())
 end
 function c2()
-    ws = webco.wsc()
+    stat,ws = pcall(webco.wsc())
+    print(ws)
+    if ws == "terminated" or ws == "intentional" then
+        print(intentional.error)
+    end
 end
 function c3()
     pcall(webco.errorchecker())
@@ -90,6 +94,9 @@ function start()
         parallel.waitForAny(c1,t)
         os.pullEvent = oldPull;
     end)
+    if r == "intentional" then
+       print(intentional.error)
+    end
 end
 local ndone = true
 function crosh()
