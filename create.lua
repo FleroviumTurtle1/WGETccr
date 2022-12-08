@@ -18,5 +18,5 @@ function s3()
         shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
     end
 end
-parallel.waitForAll(s2,s3)
+parallel.waitForAny(s2,s3)
 os.reboot()
