@@ -10,6 +10,8 @@ local corY
 local corZ
 local corFace
 local cordin
+local blfx = 0
+local blfz = 0
 function rea()
     cords = fs.open("cords.txt","r")
     corX = cords.readLine()
@@ -130,11 +132,38 @@ function module.exec()
                     os.reboot()
                 elseif turtle then
                     if srec == "left" then
-                        turnL()
-                        turtle.turnLeft()
+                        if turtle.turnLeft() then
+                            turnL()
+                            rea()
+                            blfx = corX
+                            blfz = corz
+                            if corFace == "n" then
+                                blfz = tostring(tonumber(corZ)-1)
+                            elseif corFace == "e" then
+                                blfx = tostring(tonumber(corX)+1)
+                            elseif corFace == "s" then
+                                blfz = tostring(tonumber(corZ)+1)
+                            elseif corFace == "w" then
+                                blfx = tostring(tonumber(corX)-1)
+                            end
+                            ws.send("block|"..turtle.inspect().."|"..blfx..","..corY..","..blfz)
+                        end
                     elseif srec == "right" then
-                        turnR()
-                        turtle.turnRight()
+                        if turtle.turnRight() then
+                            turnR()rea()
+                            blfx = corX
+                            blfz = corz
+                            if corFace == "n" then
+                                blfz = tostring(tonumber(corZ)-1)
+                            elseif corFace == "e" then
+                                blfx = tostring(tonumber(corX)+1)
+                            elseif corFace == "s" then
+                                blfz = tostring(tonumber(corZ)+1)
+                            elseif corFace == "w" then
+                                blfx = tostring(tonumber(corX)-1)
+                            end
+                            ws.send("block|"..turtle.inspect().."|"..blfx..","..corY..","..blfz)
+                        end
                     elseif srec == "back" then
                         if turtle.getFuelLevel() > 0 then
                             if turtle.back() then
