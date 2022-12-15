@@ -181,6 +181,8 @@ function module.exec()
                                 cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
                                 cords.close()
                                 ws.send("wcor|"..os.getComputerLabel().."|"..corX..","..corY..","..corZ..","..corFace)
+                                ws.send("block|"..turtle.inspectDown().."|"..corX..","..tostring(tonumber(corY)-1)..","..corZ)
+                                ws.send("block|"..turtle.inspectUp().."|"..corX..","..tostring(tonumber(corY)+1)..","..corZ)
                             end
                         else
                             ws.send("webNo fuel left!")
@@ -202,6 +204,8 @@ function module.exec()
                                 cords.write(corX.."\n"..corY.."\n"..corZ.."\n"..corFace)
                                 cords.close()
                                 ws.send("wcor|"..os.getComputerLabel().."|"..corX..","..corY..","..corZ..","..corFace)
+                                ws.send("block|"..turtle.inspectDown().."|"..corX..","..tostring(tonumber(corY)-1)..","..corZ)
+                                ws.send("block|"..turtle.inspectUp().."|"..corX..","..tostring(tonumber(corY)+1)..","..corZ)
                             end
                         else
                             ws.send("webNo fuel left!")
