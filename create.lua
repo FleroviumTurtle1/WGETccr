@@ -1,17 +1,10 @@
 os.pullEvent = os.pullEventRaw;
-if fs.exists('startup.lua') then
-    fs.delete('startup.lua')
-end
-if not fs.exists('startup/re.lua') then
-    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua startup/re.lua")
-else
+if fs.exists('startup/re.lua') then
     fs.delete('startup/re.lua')
-    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua startup/re.lua")
 end
-if not fs.exists('socket/main.lua') then
-    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
-else
+shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/startup/re.lua startup/re.lua")
+if fs.exists('socket/main.lua') then
     fs.delete('socket/main.lua')
-    shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
 end
+shell.run("wget https://raw.githubusercontent.com/JaggedZirconium/WGETccr/main/socket/main.lua socket/main.lua")
 os.reboot()
